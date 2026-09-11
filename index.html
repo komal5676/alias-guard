@@ -1,1 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AliasGuard — Digital Identity Defense</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="logo">
+
+        <h1>🛡️ AliasGuard</h1>
+
+        <p>
+            Digital Identity Defense System
+        </p>
+
+    </div>
+
+
+    <button
+        class="primary-button"
+        onclick="openModal()"
+    >
+        ⚡ Forge New Identity
+    </button>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            🟢 IDENTITY PROTECTION ACTIVE
+        </div>
+
+        <h2>
+            Your Identity.
+            <span>Your Control.</span>
+            Your Shield.
+        </h2>
+
+        <p>
+            Forge unique digital identities for every online service,
+            monitor identity activity, detect exposure, assess threats,
+            and neutralize compromised identities before they spread.
+        </p>
+
+        <div class="hero-flow">
+
+            <span>🔍 ANALYZE</span>
+            <span>→</span>
+            <span>🛡️ ISOLATE</span>
+            <span>→</span>
+            <span>📡 TRACK</span>
+            <span>→</span>
+            <span>🚨 DETECT</span>
+            <span>→</span>
+            <span>🔥 ASSESS</span>
+            <span>→</span>
+            <span>⛔ CONTAIN</span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         SECURITY STATISTICS
+    ====================================== -->
+
+    <section class="stats">
+
+
+        <div class="card">
+
+            <p>🛡️ Protected Identities</p>
+
+            <h2 id="totalAliases">
+                0
+            </h2>
+
+            <span class="card-label">
+                Digital identities forged
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <p>🟢 Active Defenses</p>
+
+            <h2 id="activeAliases">
+                0
+            </h2>
+
+            <span class="card-label">
+                Identities currently protected
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <p>📡 Signals Monitored</p>
+
+            <h2 id="messages">
+                0
+            </h2>
+
+            <span class="card-label">
+                Incoming activity tracked
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <p>🚨 Threats Detected</p>
+
+            <h2 id="exposures">
+                0
+            </h2>
+
+            <span class="card-label">
+                Exposure incidents identified
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         IDENTITY COMMAND CENTER
+    ====================================== -->
+
+    <section class="panel">
+
+
+        <div class="panel-header">
+
+            <div>
+
+                <div class="section-tag">
+                    IDENTITY CONTROL
+                </div>
+
+                <h2>
+                    🛡️ Identity Command Center
+                </h2>
+
+                <p>
+                    Manage your service-specific digital identities
+                    from one secure control center.
+                </p>
+
+            </div>
+
+
+            <button
+                onclick="openModal()"
+            >
+                ⚡ Forge Identity
+            </button>
+
+        </div>
+
+
+
+        <!-- JavaScript fills this area -->
+
+        <div id="aliasTable">
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         THREAT ACTIVITY
+    ====================================== -->
+
+    <section class="panel">
+
+
+        <div class="panel-header">
+
+            <div>
+
+                <div class="section-tag">
+                    LIVE SECURITY INTELLIGENCE
+                </div>
+
+                <h2>
+                    🛰️ Threat Activity Feed
+                </h2>
+
+                <p>
+                    Real-time security events and identity activity
+                    across your protection layer.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- JavaScript fills this area -->
+
+        <div id="events">
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PRIVACY INTELLIGENCE SCANNER
+    ====================================== -->
+
+    <section class="panel analyzer-panel">
+
+
+        <div class="panel-header">
+
+            <div>
+
+                <div class="section-tag">
+                    PRIVACY INTELLIGENCE
+                </div>
+
+                <h2>
+                    🔍 Privacy Intelligence Scanner
+                </h2>
+
+                <p>
+                    Know what you're giving away before you click
+                    <strong>Sign Up</strong>.
+                    Analyze the personal data requested by an online service
+                    and identify potential privacy exposure.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SERVICE NAME -->
+
+        <label for="analyzerService">
+            🌐 Target Service
+        </label>
+
+
+        <input
+            type="text"
+            id="analyzerService"
+            placeholder="e.g. Facebook, Amazon, Newsletter"
+        >
+
+
+
+        <!-- INFORMATION REQUESTED -->
+
+        <label>
+            🔐 Data Access Requested
+        </label>
+
+
+        <div class="checkbox-grid">
+
+
+            <label class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="fieldEmail"
+                >
+
+                <span>
+                    📧 Email Address
+                </span>
+
+            </label>
+
+
+
+            <label class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="fieldName"
+                >
+
+                <span>
+                    👤 Full Name
+                </span>
+
+            </label>
+
+
+
+            <label class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="fieldPhone"
+                >
+
+                <span>
+                    📱 Phone Number
+                </span>
+
+            </label>
+
+
+
+            <label class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="fieldAddress"
+                >
+
+                <span>
+                    🏠 Physical Address
+                </span>
+
+            </label>
+
+
+
+            <label class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="fieldDob"
+                >
+
+                <span>
+                    🎂 Date of Birth
+                </span>
+
+            </label>
+
+
+
+            <label class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="fieldLocation"
+                >
+
+                <span>
+                    📍 Location Data
+                </span>
+
+            </label>
+
+
+        </div>
+
+
+
+        <!-- ANALYZE BUTTON -->
+
+        <button
+            class="analyzer-button"
+            onclick="analyzeSignup()"
+        >
+            ⚡ Scan Privacy Risk
+        </button>
+
+
+
+        <!-- ANALYSIS RESULT -->
+
+        <div
+            id="analyzerResult"
+            class="analyzer-result"
+        >
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     CREATE IDENTITY MODAL
+========================================= -->
+
+<div
+    id="modal"
+    class="modal"
+>
+
+
+    <div class="modal-content">
+
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-icon">
+            🛡️
+        </div>
+
+
+        <div class="section-tag">
+            IDENTITY PROVISIONING
+        </div>
+
+
+        <h2>
+            Forge New Digital Identity
+        </h2>
+
+
+        <p>
+            Create an isolated identity dedicated to a single
+            online service. Keep your primary identity protected.
+        </p>
+
+
+
+        <!-- SERVICE -->
+
+        <label for="service">
+            🌐 Target Service
+        </label>
+
+
+        <input
+            type="text"
+            id="service"
+            placeholder="e.g. Amazon"
+        >
+
+
+
+        <!-- PURPOSE -->
+
+        <label for="purpose">
+            🎯 Identity Purpose
+        </label>
+
+
+        <input
+            type="text"
+            id="purpose"
+            placeholder="e.g. Shopping"
+        >
+
+
+
+        <!-- TRUST -->
+
+        <label for="trust">
+            🔥 Initial Threat Sensitivity
+        </label>
+
+
+        <select id="trust">
+
+            <option value="low">
+                Low Exposure
+            </option>
+
+            <option
+                value="medium"
+                selected
+            >
+                Medium Exposure
+            </option>
+
+            <option value="high">
+                High Trust
+            </option>
+
+        </select>
+
+
+
+        <!-- CREATE -->
+
+        <button
+            class="create-button"
+            onclick="createAlias()"
+        >
+            ⚡ Forge & Protect Identity
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script
+    src="{{ url_for('static', filename='app.js') }}"
+></script>
+
+
+</body>
+
+</html>
